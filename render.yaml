@@ -26,7 +26,6 @@ services:
   # Frontend Service
   - type: static
     name: inboxintel-frontend
-    env: static
     rootDir: .
     buildCommand: npm install && npm run build
     staticPublishPath: ./dist
