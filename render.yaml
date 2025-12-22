@@ -36,7 +36,4 @@ services:
         destination: /index.html
     envVars:
       - key: VITE_API_URL
-        fromService:
-          type: web
-          name: inboxintel-backend
-          property: url
+        sync: false
