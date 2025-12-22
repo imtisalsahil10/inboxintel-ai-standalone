@@ -1,6 +1,8 @@
 import express from "express";
 import fs from "fs";
 import path from "path";
+import dotenv from "dotenv";
+dotenv.config();
 import { google } from "googleapis";
 import cors from "cors";
 import mongoose from "mongoose"; // Import Mongoose
@@ -12,8 +14,12 @@ const PORT = process.env.PORT ? parseInt(process.env.PORT) : 3000;
 const BASE_URL = process.env.BASE_URL || `http://localhost:${PORT}`; 
 const FRONTEND_URL = process.env.FRONTEND_URL || "http://localhost:5173"; 
 
-// MongoDB Connection URI - Updated as requested
-const MONGO_URI = process.env.MONGO_URI || "mongodb+srv://imtisalzxz_db_user:messi2910@mails.k8ktrmq.mongodb.net/?appName=mails";
+// MongoDB Connection URI - Secured
+const MONGO_URI = process.env.MONGO_URI || "";
+
+if (!MONGO_URI) {
+    console.error("Error: MONGO_URI is not defined in environment variables.");
+}
 
 const SCOPES = [
     "https://www.googleapis.com/auth/gmail.readonly", 

@@ -18,6 +18,7 @@ dist-ssr
 credentials.json
 token.json
 backend/credentials.json
+backend/.env
 backend/token.json
 
 # Editor directories and files
