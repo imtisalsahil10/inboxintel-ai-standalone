@@ -24,11 +24,16 @@ services:
         sync: false
 
   # Frontend Service
-  - type: static
+  - type: web
     name: inboxintel-frontend
+    env: static
     rootDir: .
     buildCommand: npm install && npm run build
     staticPublishPath: ./dist
+    routes:
+      - type: rewrite
+        source: /*
+        destination: /index.html
     envVars:
       - key: VITE_API_URL
         fromService:
