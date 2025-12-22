@@ -1,0 +1,5 @@
+{
+  "name": "InboxIntel AI Standalone",
+  "description": "Browser-native intelligent email system using Gemini AI and LocalStorage.",
+  "requestFramePermissions": []
+}

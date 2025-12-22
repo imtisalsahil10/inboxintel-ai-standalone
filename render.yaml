@@ -1,0 +1,38 @@
+services:
+  # Backend Service
+  - type: web
+    name: inboxintel-backend
+    env: node
+    plan: free
+    rootDir: backend
+    buildCommand: npm install && npm run build
+    startCommand: npm start
+    envVars:
+      - key: NODE_VERSION
+        value: 20.11.0
+      - key: GOOGLE_CLIENT_ID
+        sync: false
+      - key: GOOGLE_CLIENT_SECRET
+        sync: false
+      - key: GOOGLE_REDIRECT_URI
+        sync: false
+      - key: GEMINI_API_KEY
+        sync: false
+      - key: MONGO_URI
+        sync: false
+      - key: FRONTEND_URL
+        sync: false
+
+  # Frontend Service
+  - type: static
+    name: inboxintel-frontend
+    env: static
+    rootDir: .
+    buildCommand: npm install && npm run build
+    staticPublishPath: ./dist
+    envVars:
+      - key: VITE_API_URL
+        fromService:
+          type: web
+          name: inboxintel-backend
+          property: url
