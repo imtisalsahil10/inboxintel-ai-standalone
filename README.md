@@ -1,7 +1,3 @@
-<div align="center">
-<img width="1200" height="475" alt="GHBanner" src="https://github.com/user-attachments/assets/0aa67016-6eaf-458a-adb2-6e31a0763ed6" />
-</div>
-
 # InboxIntel AI - Intelligent Email Assistant
 
 InboxIntel AI is a powerful, full-stack email management platform designed to declutter your inbox and boost productivity. By leveraging Google's Gemini AI, it transforms how you interact with your emails through intelligent summarization, sentiment analysis, and automated smart replies.
