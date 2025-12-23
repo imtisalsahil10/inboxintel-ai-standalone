@@ -1,4 +1,6 @@
+# SPA routing: Redirect all non-file routes to index.html
 [[redirects]]
   from = "/*"
   to = "/index.html"
   status = 200
+  conditions = { "Rule-ID" = ["default-spa"] }

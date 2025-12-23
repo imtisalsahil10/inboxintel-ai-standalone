@@ -30,6 +30,14 @@ services:
     rootDir: .
     buildCommand: npm install && npm run build
     staticPublishPath: ./dist
+    routes:
+      - path: /assets/*
+        method: GET
+      - path: /index.css
+        method: GET
+      - path: /*
+        method: GET
+        destination: /index.html
     envVars:
       - key: VITE_API_URL
         sync: false
