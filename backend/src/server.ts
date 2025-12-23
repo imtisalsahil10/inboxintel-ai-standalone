@@ -102,12 +102,13 @@ let oAuth2Client: any = null;
 // Initialize OAuth Client (Support Env Vars for Production)
 const CLIENT_ID = process.env.GOOGLE_CLIENT_ID;
 const CLIENT_SECRET = process.env.GOOGLE_CLIENT_SECRET;
+const REDIRECT_URI = process.env.GOOGLE_REDIRECT_URI || `${BASE_URL}/oauth2callback`;
 
 if (CLIENT_ID && CLIENT_SECRET) {
     oAuth2Client = new google.auth.OAuth2(
       CLIENT_ID,
       CLIENT_SECRET,
-      `${BASE_URL}/oauth2callback`
+      REDIRECT_URI
     );
     console.log("[Server] OAuth Client initialized from Environment Variables.");
 } else {
@@ -118,7 +119,7 @@ if (CLIENT_ID && CLIENT_SECRET) {
             oAuth2Client = new google.auth.OAuth2(
             CRED.installed?.client_id || CRED.web.client_id,
             CRED.installed?.client_secret || CRED.web.client_secret,
-            `${BASE_URL}/oauth2callback`
+            REDIRECT_URI
             );
             console.log("[Server] OAuth Client initialized from credentials.json.");
         } else {
